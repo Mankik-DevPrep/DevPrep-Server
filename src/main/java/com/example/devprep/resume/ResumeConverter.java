@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ResumeConverter {
-    public ResumeDto.createResumeResponseDto createResumeResponse(Resume resume) {
-        return ResumeDto.createResumeResponseDto.builder()
+    public ResumeDto.resumeResponseDto createResumeResponse(Resume resume) {
+        return ResumeDto.resumeResponseDto.builder()
                 .job(resume.getJob())
                 .stack(resume.getStack())
                 .career(resume.getCareer())

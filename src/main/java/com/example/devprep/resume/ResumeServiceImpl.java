@@ -13,7 +13,7 @@ public class ResumeServiceImpl implements ResumeService{
     private final ResumeConverter resumeConverter;
 
     @Override
-    public ResumeDto.createResumeResponseDto createResume(ResumeDto.createResumeRequestDto request){
+    public ResumeDto.resumeResponseDto createResume(ResumeDto.createResumeRequestDto request){
 
         Resume resume = Resume.builder()
                 .job(request.getJob())

@@ -20,7 +20,7 @@ public class ResumeDto {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class createResumeResponseDto{
+    public static class resumeResponseDto {
         private ResumeEnum.Job job;
         private ResumeEnum.Stack stack;
         private String career;
