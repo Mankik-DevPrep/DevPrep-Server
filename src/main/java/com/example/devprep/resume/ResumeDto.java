@@ -8,7 +8,7 @@ public class ResumeDto {
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class createResumeRequestDto{
+    public static class resumeRequestDto {
         private ResumeEnum.Job job;
         private ResumeEnum.Stack stack;
         private String career;

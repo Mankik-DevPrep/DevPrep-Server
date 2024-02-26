@@ -28,4 +28,12 @@ public class Resume {
 
     private String note;
 
+    public void changeResume(ResumeEnum.Job newJob, ResumeEnum.Stack newStack, String newCareer, String newProject, String newNote) {
+        this.job = newJob;
+        this.stack = newStack;
+        this.career = newCareer;
+        this.project = newProject;
+        this.note = newNote;
+    }
+
 }
