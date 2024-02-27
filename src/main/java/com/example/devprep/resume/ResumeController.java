@@ -17,8 +17,8 @@ public class ResumeController {
     }
 
     @PatchMapping("/rusume/{resumeId}")
-    public ResponseEntity<?> updateResume(@RequestBody ResumeDto.resumeRequestDto request, @PathVariable Long Id) {
-        return ResponseEntity.ok().body(resumeService.updateResume(request, Id));
+    public ResponseEntity<?> updateResume(@RequestBody ResumeDto.resumeRequestDto request, @PathVariable Long resumeId) {
+        return ResponseEntity.ok().body(resumeService.updateResume(request, resumeId));
     }
 
 }
