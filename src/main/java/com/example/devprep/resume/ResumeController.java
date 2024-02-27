@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/resume")
+@RequestMapping("/resumes")
 public class ResumeController {
 
     private final ResumeService resumeService;
 
-    @PostMapping("/create")
+    @PostMapping("/resume")
     public ResponseEntity<?> createResume(@RequestBody ResumeDto.createResumeRequestDto request) {
         return ResponseEntity.ok().body(resumeService.createResume(request));
     }
