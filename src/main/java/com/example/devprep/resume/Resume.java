@@ -22,7 +22,7 @@ public class Resume {
     @Enumerated(EnumType.STRING)
     private ResumeEnum.Stack stack;
 
-    private String career;
+    private Boolean career;
 
     private String project;
 
