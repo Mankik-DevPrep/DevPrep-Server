@@ -47,4 +47,17 @@ public class ResumeServiceImpl implements ResumeService{
 
     }
 
+    @Override
+    public Long deleteResume(Long id) {
+        Optional<Resume> findResume = resumeRepository.findById(id);
+
+        if (findResume.isPresent()) {
+            Resume resume = findResume.get();
+            resumeRepository.delete(resume);
+            return id;
+        } else {
+            throw new CustomException(ErrorCode.RESUME_NOT_FOUND);
+        }
+    }
+
 }
