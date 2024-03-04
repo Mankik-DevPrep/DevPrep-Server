@@ -11,7 +11,7 @@ public class ResumeDto {
     public static class resumeRequestDto {
         private ResumeEnum.Job job;
         private ResumeEnum.Stack stack;
-        private String career;
+        private Boolean career;
         private String project;
         private String note;
     }
@@ -23,7 +23,7 @@ public class ResumeDto {
     public static class resumeResponseDto {
         private ResumeEnum.Job job;
         private ResumeEnum.Stack stack;
-        private String career;
+        private Boolean career;
         private String project;
         private String note;
     }

@@ -22,13 +22,13 @@ public class Resume {
     @Enumerated(EnumType.STRING)
     private ResumeEnum.Stack stack;
 
-    private String career;
+    private Boolean career;
 
     private String project;
 
     private String note;
 
-    public void changeResume(ResumeEnum.Job newJob, ResumeEnum.Stack newStack, String newCareer, String newProject, String newNote) {
+    public void changeResume(ResumeEnum.Job newJob, ResumeEnum.Stack newStack, Boolean newCareer, String newProject, String newNote) {
         this.job = newJob;
         this.stack = newStack;
         this.career = newCareer;
