@@ -7,4 +7,7 @@ public interface ResumeService {
     ResumeDto.resumeResponseDto updateResume(ResumeDto.resumeRequestDto updateResumeRequestDto, Long id);
 
     Long deleteResume(Long id);
+
+    ResumeDto.resumeResponseDto getResume(Long id);
+
 }

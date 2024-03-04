@@ -60,4 +60,16 @@ public class ResumeServiceImpl implements ResumeService{
         }
     }
 
+    @Override
+    public ResumeDto.resumeResponseDto getResume(Long id) {
+        Optional<Resume> findResume = resumeRepository.findById(id);
+
+        if (findResume.isPresent()) {
+            Resume resume = findResume.get();
+            return resumeConverter.resumeResponse(resume);
+        } else {
+            throw new CustomException(ErrorCode.RESUME_NOT_FOUND);
+        }
+    }
+
 }
