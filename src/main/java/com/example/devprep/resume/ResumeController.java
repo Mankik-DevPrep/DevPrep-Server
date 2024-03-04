@@ -26,4 +26,9 @@ public class ResumeController {
         return ResponseEntity.ok().body(resumeService.deleteResume(resumeId));
     }
 
+    @GetMapping("/resume/{resumeId}")
+    public ResponseEntity<?> getResume(@PathVariable Long resumeId) {
+        return ResponseEntity.ok().body(resumeService.getResume(resumeId));
+    }
+
 }
