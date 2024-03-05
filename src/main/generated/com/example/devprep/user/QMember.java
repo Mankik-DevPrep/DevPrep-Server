@@ -7,17 +7,18 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
- * QUser is a Querydsl query type for User
+ * QMember is a Querydsl query type for Member
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QUser extends EntityPathBase<Member> {
+public class QMember extends EntityPathBase<Member> {
 
-    private static final long serialVersionUID = -1786970287L;
+    private static final long serialVersionUID = 466736288L;
 
-    public static final QUser user = new QUser("user");
+    public static final QMember member = new QMember("member1");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
@@ -29,15 +30,17 @@ public class QUser extends EntityPathBase<Member> {
 
     public final StringPath password = createString("password");
 
-    public QUser(String variable) {
+    public final ListPath<com.example.devprep.resume.Resume, com.example.devprep.resume.QResume> resumes = this.<com.example.devprep.resume.Resume, com.example.devprep.resume.QResume>createList("resumes", com.example.devprep.resume.Resume.class, com.example.devprep.resume.QResume.class, PathInits.DIRECT2);
+
+    public QMember(String variable) {
         super(Member.class, forVariable(variable));
     }
 
-    public QUser(Path<? extends Member> path) {
+    public QMember(Path<? extends Member> path) {
         super(path.getType(), path.getMetadata());
     }
 
-    public QUser(PathMetadata metadata) {
+    public QMember(PathMetadata metadata) {
         super(Member.class, metadata);
     }
 
