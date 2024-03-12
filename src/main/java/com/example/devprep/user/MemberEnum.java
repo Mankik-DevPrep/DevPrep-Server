@@ -1,6 +1,6 @@
 package com.example.devprep.user;
 
-public class UserEnum {
+public class MemberEnum {
 
     public static enum Level {
         bronze, silver, gold

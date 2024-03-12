@@ -1,5 +1,6 @@
 package com.example.devprep.resume;
 
+import com.example.devprep.user.Member;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +28,10 @@ public class Resume {
     private String project;
 
     private String note;
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     public void changeResume(ResumeEnum.Job newJob, ResumeEnum.Stack newStack, Boolean newCareer, String newProject, String newNote) {
         this.job = newJob;

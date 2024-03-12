@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -17,13 +18,17 @@ public class QResume extends EntityPathBase<Resume> {
 
     private static final long serialVersionUID = -412625199L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QResume resume = new QResume("resume");
 
-    public final StringPath career = createString("career");
+    public final BooleanPath career = createBoolean("career");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final EnumPath<ResumeEnum.Job> job = createEnum("job", ResumeEnum.Job.class);
+
+    public final com.example.devprep.user.QMember member;
 
     public final StringPath note = createString("note");
 
@@ -32,15 +37,24 @@ public class QResume extends EntityPathBase<Resume> {
     public final EnumPath<ResumeEnum.Stack> stack = createEnum("stack", ResumeEnum.Stack.class);
 
     public QResume(String variable) {
-        super(Resume.class, forVariable(variable));
+        this(Resume.class, forVariable(variable), INITS);
     }
 
     public QResume(Path<? extends Resume> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QResume(PathMetadata metadata) {
-        super(Resume.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QResume(PathMetadata metadata, PathInits inits) {
+        this(Resume.class, metadata, inits);
+    }
+
+    public QResume(Class<? extends Resume> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.member = inits.isInitialized("member") ? new com.example.devprep.user.QMember(forProperty("member")) : null;
     }
 
 }
