@@ -1,6 +1,6 @@
 package com.example.devprep.resume;
 
-import com.example.devprep.user.Member;
+import com.example.devprep.member.Member;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,8 +1,8 @@
-package com.example.devprep.user;
+package com.example.devprep.comment;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface CommentRepository extends JpaRepository<Comment, Long> {
 }

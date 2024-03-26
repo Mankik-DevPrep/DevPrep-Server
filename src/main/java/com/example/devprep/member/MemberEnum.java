@@ -1,4 +1,4 @@
-package com.example.devprep.user;
+package com.example.devprep.member;
 
 public class MemberEnum {
 
