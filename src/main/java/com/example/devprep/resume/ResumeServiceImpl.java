@@ -2,11 +2,12 @@ package com.example.devprep.resume;
 
 import com.example.devprep.exception.CustomException;
 import com.example.devprep.exception.ErrorCode;
-import com.example.devprep.user.Member;
-import com.example.devprep.user.MemberRepository;
+import com.example.devprep.member.Member;
+import com.example.devprep.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +22,7 @@ public class ResumeServiceImpl implements ResumeService{
     private final MemberRepository memberRepository;
 
     @Override
+    @Transactional
     public ResumeDto.resumeResponseDto createResume(ResumeDto.resumeRequestDto request){
 
         Resume resume = Resume.builder()
@@ -37,6 +39,7 @@ public class ResumeServiceImpl implements ResumeService{
     }
 
     @Override
+    @Transactional
     public ResumeDto.resumeResponseDto updateResume(ResumeDto.resumeRequestDto request, Long id) {
         Optional<Resume> findResume = resumeRepository.findById(id);
 
@@ -52,6 +55,7 @@ public class ResumeServiceImpl implements ResumeService{
     }
 
     @Override
+    @Transactional
     public Long deleteResume(Long id) {
         Optional<Resume> findResume = resumeRepository.findById(id);
 
@@ -78,10 +82,10 @@ public class ResumeServiceImpl implements ResumeService{
 
     @Override
     public List<Resume> getResumes(Long memberId) {
-        Optional<Member> findmember = memberRepository.findById(memberId);
+        Optional<Member> findMember = memberRepository.findById(memberId);
 
-        if (findmember.isPresent()) {
-            List<Resume> resumes = findmember.get().getResumes();
+        if (findMember.isPresent()) {
+            List<Resume> resumes = findMember.get().getResumes();
             return resumes;
         } else {
             throw new CustomException(ErrorCode.USER_NOT_FOUND);

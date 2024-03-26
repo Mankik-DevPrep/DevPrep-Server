@@ -1,5 +1,8 @@
-package com.example.devprep.user;
+package com.example.devprep.member;
 
+import com.example.devprep.comment.Comment;
+import com.example.devprep.like.Like;
+import com.example.devprep.post.Post;
 import com.example.devprep.resume.Resume;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -20,21 +23,26 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
     private String password;
 
     private String nickname;
 
-    // 추후 수정 예정
     private String image;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private MemberEnum.Level level;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @Builder.Default
     private List<Resume> resumes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Post> posts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Like> likes = new ArrayList<>();
 
 }
